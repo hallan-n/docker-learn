@@ -37,3 +37,14 @@
 `docker rm 190b1425807c`
 \- Apaga o container com ID/name passado
  
+`docker build Dockerfile`
+\- Cria a sua imagem
+ 
+`docker image`
+\- Lista as imagens que você criou
+
+`docker rmi 190b1425807c`
+\- Apaga a imagem com ID passado
+
+
+ 
