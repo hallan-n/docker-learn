@@ -46,5 +46,17 @@
 `docker rmi 190b1425807c`
 \- Apaga a imagem com ID passado
 
+`docker top 190b1425807c`
+\- Lista todos os processos do container
+
+`docker stats`
+\- Fala o consumo de hardware de todos os containers
+
+`docker stats 190b1425807c`
+\- Fala o consumo de hardware do container
+
+`docker inspect 190b1425807c`
+\- Lista todas as configurações do container
+
 
  
