@@ -1,3 +1,4 @@
+# Básico
 `docker run -it ubuntu`
 \- Sobe o ubuntu em um container no modo interativo
 
@@ -57,6 +58,76 @@
 
 `docker inspect 190b1425807c`
 \- Lista todas as configurações do container
-
-
  
+`docker network ls`
+\- Lista todas as redes
+
+`docker network create my_net`
+\- Cria uma rede
+
+`docker network create my_net --subnet 192.168.134.0/24 gateway 192.168.134.1`
+\- Cria uma rede com range de ip especifico
+ 
+`docker network inspect create my_net`
+\- Lista as configurações da rede
+ 
+`docker network rm my_net`
+\- Remove a rede
+`docker network prune`
+\- Remove todas as redes não utilizadas
+
+`docker run --name webhost -d --network my_net`
+\- Sobe um container com uma rede associada
+ 
+# Dockerfile
+
+
+`FROM nginx`
+\- Define a imagem base.
+Dockerfile
+Copy code
+MAINTAINER
+
+`MAINTAINER <nome>`
+\- Define o autor ou mantenedor.
+
+`ARG <variavel>`
+\- Define variáveis de build.
+
+`ENV <nome>=<valor>`
+\- Define variáveis de ambiente.
+
+`RUN <comando>`
+\- Executa comandos durante a construção.
+
+`COPY <origem> <destino>`
+\- Copia arquivos do host para a imagem.
+
+`ADD <origem> <destino>`
+\- Similar ao COPY, mas com funcionalidades adicionais (pode extrair arquivos tar, copiar de URLs, etc.).
+
+`WORKDIR <caminho>`
+\- Define o diretório de trabalho.
+
+`EXPOSE <porta>`
+\- Informa as portas em que o contêiner escuta durante a execução.
+
+`CMD ["<comando>", "<arg1>", "<arg2>"]`
+\- Fornece argumentos padrão para a execução do contêiner.
+
+`ENTRYPOINT ["<comando>", "<arg1>", "<arg2>"]`
+\- Configura um executável padrão para o contêiner.
+
+`VOLUME ["<caminho>"]`
+\- Cria um ponto de montagem para volumes.
+
+`USER <nome ou UID>`
+\- Define o usuário ou UID a ser usado quando o contêiner é executado.
+
+`LABEL <chave>=<valor>`
+\- Adiciona metadados à imagem.
+
+# Volume
+
+`docker container run -ti --mount type=bind,src=/opt/giropops,dst=/giropops ubuntu`
+\- Cria um volume do tipo bind
